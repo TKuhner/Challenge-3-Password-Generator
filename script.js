@@ -37,7 +37,7 @@ function writePassword() {
         userChoices.push(3)
     }
 
-    console.log(userChoices);
+    console.log("userChoices" + userChoices);
 
 
 
@@ -55,19 +55,25 @@ function generatePassword(numLength, choiceArr){
 
     var newPassword;
 
-    for (let index = 0; index < numLength; index++) {
+    var x = Math.floor(Math.random() * choiceArr.length);
+    console.log(x)
+    
+    // for (let index = 0; index < numLength; index++) {
         
-        switch(x){
-            case 1:
+
+    //     switch(x){
+    //         case 0:
+    //             break;
+    //         case 1:
                 
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
+    //             break;
+    //         case 2:
+    //             break;
+    //         case 3:
+    //             break;
+    //     }
         
-    }
+    // }
     
     return newPassword;
 }
@@ -87,16 +93,6 @@ function getLength(){
     }
 }
 
-// 
-// if (getUpper == true){
-//     choiceArr.push(1)
-// }
-// if (getLower == true){
-//     choiceArr.push(2)
-// }
-// if (getSpecial == true){
-//     choiceArr.push(3)
-// }
 
 // for (let index = 0; index < passwordLength; index++) {
 //     var x = Math.floor(Math.random() * choiceArr.length);

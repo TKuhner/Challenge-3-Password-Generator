@@ -13,11 +13,14 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+    // length of password to be passed as for loop controller
     var userLength = getLength();
-    var userUpper = getUpper();
-    var userLower = getLower();
-    var userNumber = getNumber();
-    var userSpecial = getSpecial();
+
+    // booleans to
+    var userUpper = confirm("Select 'OK' to include upper case letters.");
+    var userLower = confirm("Select 'OK' to include upper case letters.");
+    var userNumber = confirm("Select 'OK' to include numbers.");
+    var userSpecial = confirm("Select 'OK' to include special case letters.");
 
     var userChoices = []
 
@@ -25,22 +28,20 @@ function writePassword() {
         userChoices.push(0)
     }
     if(userLower === true){
-        userChoices.push(0)
+        userChoices.push(1)
     }
     if(userNumber === true){
-        userChoices.push(0)
+        userChoices.push(2)
     }
     if(userSpecial === true){
-        userChoices.push(0)
+        userChoices.push(3)
     }
 
-    console.log(userLength);
-    console.log(userUpper);
-    console.log(userLower);
-    console.log(userNumber);
-    console.log(userSpecial);
+    console.log(userChoices);
 
-  var password = generatePassword();
+
+
+  var password = generatePassword(userLength, userChoices);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -50,9 +51,25 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-function generatePassword(){
+function generatePassword(numLength, choiceArr){
+
+    var newPassword;
+
+    for (let index = 0; index < numLength; index++) {
+        
+        switch(x){
+            case 1:
+                
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+        
+    }
     
-    return "hello";
+    return newPassword;
 }
 
 
@@ -70,50 +87,7 @@ function getLength(){
     }
 }
 
-function getUpper(){
-    // prompt user and store input
-    var useUpper = confirm("Select 'OK' to include upper case letters.")
-
-    return useUpper;
-}
-
-function getLower(){
-    // prompt user and store input
-    var useLower = confirm("Select 'OK' to include upper case letters.")
-
-    return useLower;
-}
-
-function getNumber(){
-    // prompt user and store input
-    var useNumber = confirm("Select 'OK' to include numbers.")
-
-    return useNumber;
-}
-
-function getSpecial(){
-    // prompt user and store input
-    var useSpecial = confirm("Select 'OK' to include special case letters.")
-
-    return useSpecial;
-}
-
-
-
-
-// var passwordLength = 0;
-// try {
-//     passwordLength = passwordLength.prompt();    
-// } catch (error) {
-    
-// }
-
-// var getUpper = getUpper.prompt("Use Upper case Yes or No");
-// var getLower = getLower.prompt("Use Lower case Yes or No");
-// var getSpecial = getSpecial.prompt("Use Special case Yes or No");
-
-// var choiceArr = []
-
+// 
 // if (getUpper == true){
 //     choiceArr.push(1)
 // }
@@ -127,14 +101,6 @@ function getSpecial(){
 // for (let index = 0; index < passwordLength; index++) {
 //     var x = Math.floor(Math.random() * choiceArr.length);
 
-//     switch(x){
-//         case 1:
-//             password.push()
-//             break;
-//         case 2:
-//             break;
-//         case 3:
-//             break;
-//     }
+
     
 // }

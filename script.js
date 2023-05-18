@@ -23,7 +23,7 @@ function writePassword() {
     var userUpper = confirm("Select 'OK' to include upper case letters.");
     var userLower = confirm("Select 'OK' to include upper case letters.");
     var userNumber = confirm("Select 'OK' to include numbers.");
-    var userSpecial = confirm("Select 'OK' to include special case letters.");
+    var userSpecial = confirm("Select 'OK' to include special case characters.");
 
 
     // adds choice options to choice array
@@ -38,6 +38,12 @@ function writePassword() {
     }
     if (userSpecial === true) {
         userChoices.push(3)
+    }
+
+    // if user says no to all options, restart password process.
+    if(userUpper === false && userLower === false && userNumber === false && userSpecial=== false){
+        alert("Password must include at least 1 type of characters.\nRestarting prompt.")
+        writePassword();
     }
 
     // tester to see what choices made it into the choice array

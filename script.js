@@ -55,25 +55,28 @@ function generatePassword(numLength, choiceArr){
 
     var newPassword;
 
-    var x = Math.floor(Math.random() * choiceArr.length);
-    console.log(x)
     
-    // for (let index = 0; index < numLength; index++) {
+    for (let index = 0; index < numLength; index++) {
         
+        var x = Math.floor(Math.random() * choiceArr.length);
+        console.log(x)
 
-    //     switch(x){
-    //         case 0:
-    //             break;
-    //         case 1:
-                
-    //             break;
-    //         case 2:
-    //             break;
-    //         case 3:
-    //             break;
-    //     }
+        switch(x){
+            case 0:
+                console.log("made it to case 0")
+                break;
+            case 1:
+                console.log("made it to case 1")
+                break;
+            case 2:
+                console.log("made it to case 2")
+                break;
+            case 3:
+                console.log("made it to case 3")
+                break;
+        }
         
-    // }
+    }
     
     return newPassword;
 }

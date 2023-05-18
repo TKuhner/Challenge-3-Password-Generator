@@ -3,9 +3,9 @@ var upperAlph = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 var lowerAlph = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-var specChar = ["!", "#", "$", "%", "^", "&", "*", "(", ")", ".", ",", "?"] 
-
 var numChar = ["0","1","2", "3", "4", "5", "6", "7", "8", "9"]
+
+var specChar = ["!", "#", "$", "%", "^", "&", "*", "(", ")", ".", ",", "?"] 
 
 
 // Assignment Code
@@ -37,7 +37,7 @@ function writePassword() {
         userChoices.push(3)
     }
 
-    console.log("userChoices" + userChoices);
+    console.log("userChoices " + userChoices);
 
 
 
@@ -53,30 +53,65 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword(numLength, choiceArr){
 
-    var newPassword;
+    var newPassword = "";
 
     
     for (let index = 0; index < numLength; index++) {
         
         var x = Math.floor(Math.random() * choiceArr.length);
-        console.log(x)
+        console.log("X" + x)
+
+        x = choiceArr[x]
+
+        console.log("X" + x)
+
+        var y;
+
 
         switch(x){
             case 0:
                 console.log("made it to case 0")
+                
+                y = Math.floor(Math.random() * upperAlph.length);
+                
+                console.log("y = " + y);
+
+                newPassword += upperAlph[y]
+                
                 break;
             case 1:
                 console.log("made it to case 1")
+                
+                y = Math.floor(Math.random() * lowerAlph.length);
+                
+                console.log("y = " + y);
+
+                newPassword += lowerAlph[y];
+                
                 break;
             case 2:
                 console.log("made it to case 2")
+                
+                y = Math.floor(Math.random() * numChar.length);
+                
+                console.log("y = " + y);
+
+                newPassword += numChar[y]
+                
                 break;
             case 3:
                 console.log("made it to case 3")
+                
+                y = Math.floor(Math.random() * specChar.length);
+                
+                console.log("y = " + y);
+
+                newPassword += specChar[y]
                 break;
         }
         
     }
+    console.log(newPassword);
     
     return newPassword;
 }
@@ -95,11 +130,3 @@ function getLength(){
         getLength();
     }
 }
-
-
-// for (let index = 0; index < passwordLength; index++) {
-//     var x = Math.floor(Math.random() * choiceArr.length);
-
-
-    
-// }

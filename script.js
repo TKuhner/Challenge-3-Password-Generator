@@ -60,12 +60,9 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword(numLength, choiceArr) {
-    // create new password as a string
+    // newPassword variable to be returned and position variables
     var newPassword = "";
-
-    // declaring y value so it is re-initialized after every iteration of the for loop
     var y;
-
     var x;
 
     // loop for length of user's chosen length
@@ -109,7 +106,6 @@ function generatePassword(numLength, choiceArr) {
     }
     return newPassword;
 }
-
 
 function getLength() {
     // prompt user and store input

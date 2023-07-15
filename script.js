@@ -15,6 +15,9 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
     // length of password to be passed as for loop controller
     var userLength = getLength();
+    if (userLength === undefined || userLength === 0) {
+        return;
+    }
 
     // userChoices array to control switch casing
     var userChoices = []
@@ -46,16 +49,11 @@ function writePassword() {
         writePassword();
     }
 
-    // tester to see what choices made it into the choice array
-    // console.log("userChoices " + userChoices);
-
-
     // password variable == generatePassword with passed parameters 
     var password = generatePassword(userLength, userChoices);
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-
 }
 
 // Add event listener to generate button
@@ -65,37 +63,29 @@ function generatePassword(numLength, choiceArr) {
     // create new password as a string
     var newPassword = "";
 
+    // declaring y value so it is re-initialized after every iteration of the for loop
+    var y;
+
+    var x;
+
     // loop for length of user's chosen length
     for (let index = 0; index < numLength; index++) {
 
         // random number for length of choice array
-        var x = Math.floor(Math.random() * choiceArr.length);
-
+        x = Math.floor(Math.random() * choiceArr.length);
 
         // x has a position value and needs to be reassigned to the actual choice at that position
-        x = choiceArr[x]
-
-        // declaring y value so it is re-initialized after every iteration of the for loop
-        var y;
-
+        x = choiceArr[x]    
 
         switch (x) {
             case 0:
-                // confirmation that cases are being accessed as needed and ignorder as needed
-                console.log("made it to case 0")
-
                 // y has a positional value that is used to pull the character at that position from the array that is paired to this case
                 y = Math.floor(Math.random() * upperAlph.length);
-
-
 
                 newPassword += upperAlph[y]
 
                 break;
             case 1:
-                // confirmation that cases are being accessed as needed and ignorder as needed
-                console.log("made it to case 1")
-
                 // y has a positional value that is used to pull the character at that position from the array that is paired to this case
                 y = Math.floor(Math.random() * lowerAlph.length);
 
@@ -103,9 +93,6 @@ function generatePassword(numLength, choiceArr) {
 
                 break;
             case 2:
-                // confirmation that cases are being accessed as needed and ignorder as needed
-                console.log("made it to case 2")
-
                 // y has a positional value that is used to pull the character at that position from the array that is paired to this case
                 y = Math.floor(Math.random() * numChar.length);
 
@@ -113,19 +100,13 @@ function generatePassword(numLength, choiceArr) {
 
                 break;
             case 3:
-                // confirmation that cases are being accessed as needed and ignorder as needed
-                console.log("made it to case 3")
-
                 // y has a positional value that is used to pull the character at that position from the array that is paired to this case
                 y = Math.floor(Math.random() * specChar.length);
-
 
                 newPassword += specChar[y]
                 break;
         }
-
     }
-
     return newPassword;
 }
 
@@ -141,6 +122,6 @@ function getLength() {
     } else {
         // if paramater is not acceptable, alert user and re-prompt
         alert("You've entered an invalid value. Please enter a valid input.")
-        getLength();
+        return 0;
     }
 }

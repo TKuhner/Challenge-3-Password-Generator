@@ -24,7 +24,7 @@ function writePassword() {
 
     // booleans to create case options in switch
     var userUpper = confirm("Select 'OK' to include upper case letters.");
-    var userLower = confirm("Select 'OK' to include upper case letters.");
+    var userLower = confirm("Select 'OK' to include lower case letters.");
     var userNumber = confirm("Select 'OK' to include numbers.");
     var userSpecial = confirm("Select 'OK' to include special case characters.");
 
